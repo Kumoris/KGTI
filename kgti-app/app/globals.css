@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --neon-blue: #00d4ff;
+  --neon-gold: #ffd700;
+  --neon-purple: #a855f7;
+  --neon-pink: #ff2d95;
+  --deep-black: #0a0a0f;
+  --card-bg: rgba(15, 15, 25, 0.8);
+  --card-border: rgba(0, 212, 255, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--deep-black);
+  --color-foreground: #e0e0e0;
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-gold: var(--neon-gold);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-pink: var(--neon-pink);
+  --color-deep-black: var(--deep-black);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+}
+
+body {
+  background: var(--deep-black);
+  color: #e0e0e0;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.neon-text-blue {
+  text-shadow: 0 0 7px var(--neon-blue), 0 0 10px var(--neon-blue),
+    0 0 21px var(--neon-blue);
+}
+
+.neon-text-gold {
+  text-shadow: 0 0 7px var(--neon-gold), 0 0 10px var(--neon-gold),
+    0 0 21px var(--neon-gold);
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 7px var(--neon-purple), 0 0 10px var(--neon-purple),
+    0 0 21px var(--neon-purple);
+}
+
+.neon-text-pink {
+  text-shadow: 0 0 7px var(--neon-pink), 0 0 10px var(--neon-pink),
+    0 0 21px var(--neon-pink);
+}
+
+.glass-card {
+  background: rgba(15, 15, 25, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.05),
+    inset 0 0 15px rgba(0, 212, 255, 0.02);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.1),
+    inset 0 0 25px rgba(0, 212, 255, 0.03);
+}
+
+.breathe-glow {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+  }
+  50% {
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue),
+      0 0 45px var(--neon-blue);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: #fff;
+}
